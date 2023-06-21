@@ -1,0 +1,3 @@
+<rows>
+cdi_fecha_registro="${fld:cdi_fecha_registro}"    cdi_vigencia="${fld:cdi_vigencia}"    cdi_estatus="${fld:cdi_estatus}"    cdi_esquema="${fld:cdi_esquema}"    cdi_descripcion="${fld:cdi_descripcion}"    cdi_codigo="${fld:cdi_codigo}"    
+</rows>

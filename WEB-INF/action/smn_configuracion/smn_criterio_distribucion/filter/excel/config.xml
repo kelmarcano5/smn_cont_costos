@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncriteriodistribucion.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="4" cellStep="0" name="${lbl:b_criterios_distribucion}"/>
+	
+	<excel 
+		recordset='query-smncriteriodistribucion.sql' 
+		sheetname='${lbl:b_criterios_distribucion}' 
+		filename='${lbl:b_criterios_distribucion}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='cdi_codigo' label='${lbl:b_acount_code}' />
+		<col id='cdi_descripcion' label='${lbl:b_description} ' />
+		<col id='cdi_esquema' label='${lbl:b_esquema}' />
+		<col id='cdi_estatus_combo' label='${lbl:b_status}' />
+		<col id='cdi_vigencia' label='${lbl:b_validation_date}' />
+		<col id='cdi_idioma' label='${lbl:s_profile_lang}' />
+		<col id='cdi_usuario' label='${lbl:b_users}' />
+		<col id='cdi_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='cdi_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

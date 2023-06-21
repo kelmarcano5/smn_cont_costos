@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_centro_costo_rf' type='integer' required='true' label='${lbl:b_cost_centers}' maxlen='10'/>
+	<parameter id='smn_funcion_centro_id_name' type='varchar' required='true' label='${lbl:b_funcion_centro_costo}'/>
+	<parameter id='smn_funcion_centro_id' type='integer' required='false' label='${lbl:b_funcion_centro_costo}' maxlen='10'/>
+	<parameter id='smn_nivel_distribucion_id_name' type='varchar' required='true' label='${lbl:b_nivel_distribucion}'/>
+	<parameter id='smn_nivel_distribucion_id' type='integer' required='false' label='${lbl:b_nivel_distribucion}' maxlen='10'/>
+	<parameter id='smn_doc_base_distribucion_id_name' type='varchar' required='true' label='${lbl:b_documento_base_distribucion}'/>
+	<parameter id='smn_doc_base_distribucion_id' type='integer' required='false' label='${lbl:b_documento_base_distribucion}' maxlen='10'/>
+	<parameter id='cdi_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='cdi_vigencia' type='date' required='true' label='${lbl:b_validation_date}' maxlen='10'/>
+
+
+</validator>

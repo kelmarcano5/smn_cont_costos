@@ -1,0 +1,1 @@
+select smn_cont_costos.smn_doc_base_distribucion.smn_doc_base_distribucion_id as id, smn_cont_costos.smn_doc_base_distribucion.dbd_codigo|| ' - ' || smn_cont_costos.smn_doc_base_distribucion.dbd_descripcion as item from smn_cont_costos.smn_doc_base_distribucion order by dbd_descripcion

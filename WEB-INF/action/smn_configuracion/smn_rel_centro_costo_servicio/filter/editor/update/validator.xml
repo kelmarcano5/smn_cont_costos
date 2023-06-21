@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_centro_costo_rf' type='integer' required='true' label='${lbl:b_cost_centers}' maxlen='10'/>
+	<parameter id='smn_servicio_rf' type='integer' required='true' label='${lbl:b_services}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_rel_centro_costo_servicio}' maxlen='10'/>
+
+
+</validator>

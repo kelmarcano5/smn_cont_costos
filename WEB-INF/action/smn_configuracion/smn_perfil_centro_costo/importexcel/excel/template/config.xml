@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnperfilcentrocosto.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_perfil_centro_costo}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_perfil_centro_costo}">
+				<col id='smn_centro_costo_rf_combo' label='${lbl:b_cost_centers}' />
+		<col id='smn_funcion_centro_id_combo' label='${lbl:b_funcion_centro_costo}' />
+		<col id='smn_nivel_distribucion_id_combo' label='${lbl:b_nivel_distribucion}' />
+		<col id='smn_doc_base_distribucion_id_combo' label='${lbl:b_documento_base_distribucion}' />
+		<col id='cdi_estatus_combo' label='${lbl:b_status}' />
+		<col id='cdi_vigencia' label='${lbl:b_validation_date}' />
+		<col id='cdi_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

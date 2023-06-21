@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_criterio_distribucion>
+	<detail>
+		<rows>		
+		<record cdi_fecha_registro="${fld:cdi_fecha_registro}"    cdi_vigencia="${fld:cdi_vigencia}"    cdi_estatus="${fld:cdi_estatus}"    cdi_esquema="${fld:cdi_esquema}"    cdi_descripcion="${fld:cdi_descripcion}"    cdi_codigo="${fld:cdi_codigo}"    />
+		</rows>
+	</detail>
+</smn_criterio_distribucion>

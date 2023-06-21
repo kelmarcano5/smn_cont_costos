@@ -1,0 +1,3 @@
+<rows>
+rse_fecha_registro="${fld:rse_fecha_registro}"    smn_elemento_id="${fld:smn_elemento_id}"    smn_servicios_rf="${fld:smn_servicios_rf}"    
+</rows>

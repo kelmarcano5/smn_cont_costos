@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='niv_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='16'/>
+	<parameter id='niv_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='48'/>
+	<parameter id='niv_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='niv_vigencia' type='date' required='true' label='${lbl:b_validation_date}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_nivel_distribucion}' maxlen='10'/>
+
+
+</validator>

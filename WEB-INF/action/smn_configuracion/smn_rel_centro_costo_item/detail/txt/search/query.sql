@@ -1,0 +1,14 @@
+select
+select
+select
+	smn_cont_costos.smn_rel_centro_costo_item.smn_centro_costo_rf,
+	smn_cont_costos.smn_rel_centro_costo_item.smn_item_rf,
+	smn_cont_costos.smn_rel_centro_costo_item.rci_idioma,
+	smn_cont_costos.smn_rel_centro_costo_item.rci_usuario,
+	smn_cont_costos.smn_rel_centro_costo_item.rci_fecha_registro,
+	smn_cont_costos.smn_rel_centro_costo_item.rci_hora,
+		smn_cont_costos.smn_rel_centro_costo_item.smn_rel_centro_costo_item_id
+from
+	smn_cont_costos.smn_rel_centro_costo_item
+where
+	smn_rel_centro_costo_item_id = ${fld:id}

@@ -1,0 +1,1 @@
+select smn_cont_costos.smn_nivel_distribucion.smn_nivel_distribucion_id as id, smn_cont_costos.smn_nivel_distribucion.niv_codigo|| ' - ' || smn_cont_costos.smn_nivel_distribucion.niv_descripcion as item from smn_cont_costos.smn_nivel_distribucion order by niv_descripcion

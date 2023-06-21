@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_rel_centro_costo_elemento}</summary>
+	<filter>
+		<row field='smn_centro_costo_rf' id='smn_centro_costo_rf' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo|| &apos; - &apos; || smn_base.smn_centro_costo.cco_descripcion_larga as item from smn_base.smn_centro_costo order by cco_descripcion_larga}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_centro_costo_elemento' len='10'/>
+		<row field='smn_elemento_id' id='smn_elemento_id' label='${lbl:b_element}@{select smn_cont_costos.smn_elemento.smn_elemento_id as id, smn_cont_costos.smn_elemento.ele_codigo|| &apos; - &apos; || smn_cont_costos.smn_elemento.ele_descripcion as item from smn_cont_costos.smn_elemento order by ele_descripcion}' required='NO' fk='ele_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_rel_centro_costo_elemento' len='10'/>
+		<row field='rce_fecha_registro' id='rce_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_rel_centro_costo_elemento' len='10'/>
+		<row field='rce_fecha_registro' id='rce_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_rel_centro_costo_elemento' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_centro_costo_rf' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo|| &apos; - &apos; || smn_base.smn_centro_costo.cco_descripcion_larga as item from smn_base.smn_centro_costo order by cco_descripcion_larga}' fk='' tableName='smn_rel_centro_costo_elemento' len='10' type='integer' align='center'/>
+		<row field='smn_elemento_id' label='${lbl:b_element}@{select smn_cont_costos.smn_elemento.smn_elemento_id as id, smn_cont_costos.smn_elemento.ele_codigo|| &apos; - &apos; || smn_cont_costos.smn_elemento.ele_descripcion as item from smn_cont_costos.smn_elemento order by ele_descripcion}' fk='ele_codigo' tableName='smn_rel_centro_costo_elemento' len='10' type='integer' align='center'/>
+		<row field='rce_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_rel_centro_costo_elemento' len='2' type='varchar' align='left'/>
+		<row field='rce_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_rel_centro_costo_elemento' len='16' type='varchar' align='left'/>
+		<row field='rce_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_rel_centro_costo_elemento' len='10' type='date' align='center'/>
+		<row field='rce_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_rel_centro_costo_elemento' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

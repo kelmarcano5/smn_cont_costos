@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='ele_codigo' type='varchar' required='true' label='${lbl:b_acount_code}' maxlen='16'/>
+	<parameter id='ele_descripcion' type='varchar' required='true' label='${lbl:b_description} ' maxlen='48'/>
+	<parameter id='ele_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='ele_vigencia' type='date' required='true' label='${lbl:b_validation_date}' maxlen='10'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='ele_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='ele_descripcion'/>
+
+
+</validator>

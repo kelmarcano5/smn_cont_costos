@@ -1,0 +1,19 @@
+select
+	smn_cont_costos.smn_elemento.smn_elemento_id,
+	smn_cont_costos.smn_elemento.ele_codigo as ele_codigo_pl1,
+select
+select
+	smn_cont_costos.smn_rel_centro_costo_elemento.smn_centro_costo_rf,
+	smn_cont_costos.smn_rel_centro_costo_elemento.smn_elemento_id,
+	smn_cont_costos.smn_rel_centro_costo_elemento.rce_idioma,
+	smn_cont_costos.smn_rel_centro_costo_elemento.rce_usuario,
+	smn_cont_costos.smn_rel_centro_costo_elemento.rce_fecha_registro,
+	smn_cont_costos.smn_rel_centro_costo_elemento.rce_hora,
+		smn_cont_costos.smn_rel_centro_costo_elemento.smn_rel_centro_costo_elemento_id
+from
+	smn_cont_costos.smn_elemento,
+	smn_cont_costos.smn_rel_centro_costo_elemento
+where
+	smn_cont_costos.smn_elemento.smn_elemento_id=smn_cont_costos.smn_rel_centro_costo_elemento.smn_elemento_id
+	and
+	smn_rel_centro_costo_elemento_id = ${fld:id}

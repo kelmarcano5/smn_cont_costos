@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnfuncioncentro.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_funcion_centro_costo}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_funcion_centro_costo}">
+				<col id='fun_codigo' label='${lbl:b_code}' />
+		<col id='fun_descripcion' label='${lbl:b_description}' />
+		<col id='fun_funcion_combo' label='${lbl:b_funcion}' />
+		<col id='fun_estatus_combo' label='${lbl:b_status}' />
+		<col id='fun_vigencia' label='${lbl:b_validation_date}' />
+		<col id='fun_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

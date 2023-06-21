@@ -1,0 +1,24 @@
+INSERT INTO smn_cont_costos.smn_doc_base_distribucion
+(
+	smn_doc_base_distribucion_id,
+	dbd_codigo,
+	dbd_descripcion,
+	dbd_estatus,
+	dbd_vigencia,
+	dbd_idioma,
+	dbd_usuario,
+	dbd_fecha_registro,
+	dbd_hora
+)
+VALUES
+(
+	${seq:currval@smn_cont_costos.seq_smn_doc_base_distribucion},
+	${fld:dbd_codigo},
+	${fld:dbd_descripcion},
+	${fld:dbd_estatus},
+	${fld:dbd_vigencia},
+	'${def:locale}',
+	'${def:user}',
+	'${def:date}',
+	'${def:time}'
+)

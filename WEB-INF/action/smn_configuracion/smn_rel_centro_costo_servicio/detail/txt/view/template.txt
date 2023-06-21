@@ -1,0 +1,3 @@
+<rows>
+rcs_fecha_registro="${fld:rcs_fecha_registro}"    smn_servicio_rf="${fld:smn_servicio_rf}"    smn_centro_costo_rf="${fld:smn_centro_costo_rf}"    
+</rows>

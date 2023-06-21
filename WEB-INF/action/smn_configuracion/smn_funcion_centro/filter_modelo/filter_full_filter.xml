@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_funcion_centro_costo}</summary>
+	<filter>
+		<row field='fun_codigo' id='fun_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_funcion_centro' len='16'/>
+		<row field='fun_descripcion' id='fun_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Comienza por' type='varchar' tableName='smn_funcion_centro' len='48'/>
+		<row field='fun_fecha_registro' id='fun_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_funcion_centro' len='10'/>
+		<row field='fun_fecha_registro' id='fun_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_funcion_centro' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='fun_codigo' label='${lbl:b_code}' fk='' tableName='smn_funcion_centro' len='16' type='varchar' align='left'/>
+		<row field='fun_descripcion' label='${lbl:b_description}' fk='' tableName='smn_funcion_centro' len='48' type='varchar' align='left'/>
+		<row field='fun_funcion' label='${lbl:b_funcion}@{DI=${lbl:b_distribuidor}|RC=${lbl:b_receptor}|DR=${lbl:b_distribuidor_receptor}|RN=${lbl:b_rentable}}' fk='' tableName='smn_funcion_centro' len='2' type='varchar' align='left'/>
+		<row field='fun_estatus' label='${lbl:b_status}@{AC=${lbl:b_account_type_active}|IN=${lbl:b_inactive}}' fk='' tableName='smn_funcion_centro' len='2' type='varchar' align='left'/>
+		<row field='fun_vigencia' label='${lbl:b_validation_date}' fk='' tableName='smn_funcion_centro' len='10' type='date' align='center'/>
+		<row field='fun_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_funcion_centro' len='2' type='varchar' align='left'/>
+		<row field='fun_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_funcion_centro' len='16' type='varchar' align='left'/>
+		<row field='fun_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_funcion_centro' len='10' type='date' align='center'/>
+		<row field='fun_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_funcion_centro' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

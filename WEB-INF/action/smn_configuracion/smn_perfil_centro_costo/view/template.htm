@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+	<col width='14%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="10">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_centro_costo_rf_combo","query-smnperfilcentrocosto.sql")'>${lbl:b_cost_centers}</th>
+		<th class='sortable' onclick='sortBy("smn_funcion_centro_id_combo","query-smnperfilcentrocosto.sql")'>${lbl:b_funcion_centro_costo}</th>
+		<th class='sortable' onclick='sortBy("smn_nivel_distribucion_id_combo","query-smnperfilcentrocosto.sql")'>${lbl:b_nivel_distribucion}</th>
+		<th class='sortable' onclick='sortBy("smn_doc_base_distribucion_id_combo","query-smnperfilcentrocosto.sql")'>${lbl:b_documento_base_distribucion}</th>
+		<th class='sortable' onclick='sortBy("cdi_estatus_combo","query-smnperfilcentrocosto.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("cdi_vigencia","query-smnperfilcentrocosto.sql")'>${lbl:b_validation_date}</th>
+		<th class='sortable' onclick='sortBy("cdi_fecha_registro","query-smnperfilcentrocosto.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_perfil_centro_costo_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_perfil_centro_costo_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_perfil_centro_costo_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_centro_costo_rf_combo}</td>
+		<td>${fld:smn_funcion_centro_id_combo}</td>
+		<td>${fld:smn_nivel_distribucion_id_combo}</td>
+		<td>${fld:smn_doc_base_distribucion_id_combo}</td>
+		<td align='left'>${fld:cdi_estatus_combo}</td>
+		<td>${fld:cdi_vigencia@dd-MM-yyyy}</td>
+		<td>${fld:cdi_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

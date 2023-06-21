@@ -1,0 +1,8 @@
+select
+		smn_cont_costos.smn_rel_centro_costo_servicio.smn_centro_costo_rf,
+	smn_cont_costos.smn_rel_centro_costo_servicio.smn_servicio_rf,
+	smn_cont_costos.smn_rel_centro_costo_servicio.rcs_fecha_registro
+from
+	smn_cont_costos.smn_rel_centro_costo_servicio 
+where
+	smn_cont_costos.smn_rel_centro_costo_servicio.smn_rel_centro_costo_servicio_id = ${fld:id}

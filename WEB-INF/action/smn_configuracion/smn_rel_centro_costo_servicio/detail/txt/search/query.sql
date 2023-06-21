@@ -1,0 +1,14 @@
+select
+select
+select
+	smn_cont_costos.smn_rel_centro_costo_servicio.smn_centro_costo_rf,
+	smn_cont_costos.smn_rel_centro_costo_servicio.smn_servicio_rf,
+	smn_cont_costos.smn_rel_centro_costo_servicio.rcs_idioma,
+	smn_cont_costos.smn_rel_centro_costo_servicio.rcs_usuario,
+	smn_cont_costos.smn_rel_centro_costo_servicio.rcs_fecha_registro,
+	smn_cont_costos.smn_rel_centro_costo_servicio.rcs_hora,
+		smn_cont_costos.smn_rel_centro_costo_servicio.smn_rel_centro_costo_servicio_id
+from
+	smn_cont_costos.smn_rel_centro_costo_servicio
+where
+	smn_rel_centro_costo_servicio_id = ${fld:id}

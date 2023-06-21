@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<smn_elemento>
+	<detail>
+		<rows>		
+		<record ele_fecha_registro="${fld:ele_fecha_registro}"    ele_vigencia="${fld:ele_vigencia}"    ele_estatus="${fld:ele_estatus}"    ele_descripcion="${fld:ele_descripcion}"    ele_codigo="${fld:ele_codigo}"    />
+		</rows>
+	</detail>
+</smn_elemento>

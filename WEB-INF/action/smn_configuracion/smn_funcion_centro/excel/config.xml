@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnfuncioncentro.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="4" cellStep="0" name="${lbl:b_funcion_centro_costo}"/>
+	
+	<excel 
+		recordset='query-smnfuncioncentro.sql' 
+		sheetname='${lbl:b_funcion_centro_costo}' 
+		filename='${lbl:b_funcion_centro_costo}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='fun_codigo' label='${lbl:b_code}' />
+		<col id='fun_descripcion' label='${lbl:b_description}' />
+		<col id='fun_funcion_combo' label='${lbl:b_funcion}' />
+		<col id='fun_estatus_combo' label='${lbl:b_status}' />
+		<col id='fun_vigencia' label='${lbl:b_validation_date}' />
+		<col id='fun_idioma' label='${lbl:s_profile_lang}' />
+		<col id='fun_usuario' label='${lbl:b_users}' />
+		<col id='fun_fecha_registro' label='${lbl:b_store_date}' />
+		<col id='fun_hora' label='${lbl:s_loginhist_col2}' />
+
+	</excel>
+
+</config>

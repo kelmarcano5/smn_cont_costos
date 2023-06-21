@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_nivel_distribucion}</summary>
+	<filter>
+		<row field='niv_codigo' id='niv_codigo' label='${lbl:b_code}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='varchar' tableName='smn_nivel_distribucion' len='16'/>
+		<row field='niv_descripcion' id='niv_descripcion' label='${lbl:b_description}' required='NO' fk='' mSelection='' condiction='Contiene' type='varchar' tableName='smn_nivel_distribucion' len='48'/>
+		<row field='niv_fecha_registro' id='niv_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_nivel_distribucion' len='10'/>
+		<row field='niv_fecha_registro' id='niv_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_nivel_distribucion' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='niv_codigo' label='${lbl:b_code}' fk='' tableName='smn_nivel_distribucion' len='16' type='varchar' align='left'/>
+		<row field='niv_descripcion' label='${lbl:b_description}' fk='' tableName='smn_nivel_distribucion' len='48' type='varchar' align='left'/>
+		<row field='niv_estatus' label='${lbl:b_status}@{AC=${lbl:b_account_type_active}|IN=${lbl:b_inactive}}' fk='' tableName='smn_nivel_distribucion' len='2' type='varchar' align='left'/>
+		<row field='niv_vigencia' label='${lbl:b_validation_date}' fk='' tableName='smn_nivel_distribucion' len='10' type='date' align='center'/>
+		<row field='niv_idioma' label='${lbl:s_profile_lang}@{${def:locale}}  ' fk='' tableName='smn_nivel_distribucion' len='2' type='varchar' align='left'/>
+		<row field='niv_fecha_registro' label='${lbl:b_store_date}@{${def:date}}  ' fk='' tableName='smn_nivel_distribucion' len='10' type='date' align='center'/>
+		<row field='niv_usuario' label='${lbl:b_users}@{${def:user}}  ' fk='' tableName='smn_nivel_distribucion' len='16' type='varchar' align='left'/>
+		<row field='niv_hora' label='${lbl:s_loginhist_col2}@{${def:time}}  ' fk='' tableName='smn_nivel_distribucion' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

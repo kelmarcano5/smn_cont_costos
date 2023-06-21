@@ -1,0 +1,30 @@
+INSERT INTO smn_cont_costos.smn_rol
+(
+	smn_rol_id,
+	smn_usuarios_rf,
+	smn_estructura_organizacional_rf,
+	rol_tipo,
+	smn_corporaciones_rf,
+	smn_sucursales_rf,
+	rol_estatus,
+	rol_vigencia,
+	rol_idioma,
+	rol_usuario,
+	rol_fecha_registro,
+	rol_hora
+)
+VALUES
+(
+	${seq:currval@smn_cont_costos.seq_smn_rol},
+	${fld:smn_usuarios_rf},
+	${fld:smn_estructura_organizacional_rf},
+	${fld:rol_tipo},
+	${fld:smn_corporaciones_rf},
+	${fld:smn_sucursales_rf},
+	${fld:rol_estatus},
+	${fld:rol_vigencia},
+	'${def:locale}',
+	'${def:user}',
+	'${def:date}',
+	'${def:time}'
+)

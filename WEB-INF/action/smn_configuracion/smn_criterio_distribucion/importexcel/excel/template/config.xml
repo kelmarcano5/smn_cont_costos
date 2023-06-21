@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smncriteriodistribucion.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_criterios_distribucion}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_criterios_distribucion}">
+				<col id='cdi_codigo' label='${lbl:b_acount_code}' />
+		<col id='cdi_descripcion' label='${lbl:b_description}' />
+		<col id='cdi_esquema' label='${lbl:b_esquema}' />
+		<col id='cdi_estatus_combo' label='${lbl:b_status}' />
+		<col id='cdi_vigencia' label='${lbl:b_validation_date}' />
+		<col id='cdi_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

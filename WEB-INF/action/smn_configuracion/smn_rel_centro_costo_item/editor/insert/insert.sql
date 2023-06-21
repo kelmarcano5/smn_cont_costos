@@ -1,0 +1,20 @@
+INSERT INTO smn_cont_costos.smn_rel_centro_costo_item
+(
+	smn_rel_centro_costo_item_id,
+	smn_centro_costo_rf,
+	smn_item_rf,
+	rci_idioma,
+	rci_usuario,
+	rci_fecha_registro,
+	rci_hora
+)
+VALUES
+(
+	${seq:currval@smn_cont_costos.seq_smn_rel_centro_costo_item},
+	${fld:smn_centro_costo_rf},
+	${fld:smn_item_rf},
+	'${def:locale}',
+	'${def:user}',
+	'${def:date}',
+	'${def:time}'
+)

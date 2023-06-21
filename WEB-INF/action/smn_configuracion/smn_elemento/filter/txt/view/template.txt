@@ -1,0 +1,3 @@
+<rows>
+ele_fecha_registro="${fld:ele_fecha_registro}"    ele_vigencia="${fld:ele_vigencia}"    ele_estatus="${fld:ele_estatus}"    ele_descripcion="${fld:ele_descripcion}"    ele_codigo="${fld:ele_codigo}"    
+</rows>

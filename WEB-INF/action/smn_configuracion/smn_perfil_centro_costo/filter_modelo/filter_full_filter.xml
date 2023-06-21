@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+	<summary>${lbl:b_perfil_centro_costo}</summary>
+	<filter>
+		<row field='smn_centro_costo_rf' id='smn_centro_costo_rf' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo|| &apos; - &apos; || smn_base.smn_centro_costo.cco_descripcion_larga as item from smn_base.smn_centro_costo order by cco_descripcion_larga}' required='NO' fk='' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_perfil_centro_costo' len='10'/>
+		<row field='smn_funcion_centro_id' id='smn_funcion_centro_id' label='${lbl:b_funcion_centro_costo}@{select smn_cont_costos.smn_funcion_centro.smn_funcion_centro_id as id, smn_cont_costos.smn_funcion_centro.fun_codigo|| &apos; - &apos; || smn_cont_costos.smn_funcion_centro.fun_descipcion as item from smn_cont_costos.smn_funcion_centro order by fun_descipcion}' required='NO' fk='fun_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_perfil_centro_costo' len='10'/>
+		<row field='smn_nivel_distribucion_id' id='smn_nivel_distribucion_id' label='${lbl:b_nivel_distribucion}@{select smn_cont_costos.smn_nivel_distribucion.smn_nivel_distribucion_id as id, smn_cont_costos.smn_nivel_distribucion.niv_codigo|| &apos; - &apos; || smn_cont_costos.smn_nivel_distribucion.niv_descipcion as item from smn_cont_costos.smn_nivel_distribucion order by niv_descipcion}' required='NO' fk='niv_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_perfil_centro_costo' len='10'/>
+		<row field='smn_doc_base_distribucion_id' id='smn_doc_base_distribucion_id' label='${lbl:b_documento_base_distribucion}@{select smn_cont_costos.smn_doc_base_distribucion.smn_doc_base_distribucion_id as id, smn_cont_costos.smn_doc_base_distribucion.dbd_codigo|| &apos; - &apos; || smn_cont_costos.smn_doc_base_distribucion.dbd_descipcion as item from smn_cont_costos.smn_doc_base_distribucion order by dbd_descipcion}' required='NO' fk='dbd_codigo' mSelection='' condiction='Igual que (=)' type='integer' tableName='smn_perfil_centro_costo' len='10'/>
+		<row field='cdi_fecha_registro' id='cdi_fecha_registro_ini' label='${lbl:b_store_date_greather_than}' required='NO' fk='' mSelection='' condiction='Mayor o igual que (&gt;=)' type='date' tableName='smn_perfil_centro_costo' len='10'/>
+		<row field='cdi_fecha_registro' id='cdi_fecha_registro_fin' label='${lbl:b_store_date_less_than}' required='NO' fk='' mSelection='' condiction='Menor o igual que (&lt;=)' type='date' tableName='smn_perfil_centro_costo' len='10'/>
+	</filter>
+	<detail>SI</detail>
+	<insert>SI</insert>
+	<edit>SI</edit>
+	<delete>SI</delete>
+	<audit>Consulta</audit>
+	<grid>
+		<row field='smn_centro_costo_rf' label='${lbl:b_cost_centers}@{select smn_base.smn_centro_costo.smn_centro_costo_id as id, smn_base.smn_centro_costo.cco_codigo|| &apos; - &apos; || smn_base.smn_centro_costo.cco_descripcion_larga as item from smn_base.smn_centro_costo order by cco_descripcion_larga}' fk='' tableName='smn_perfil_centro_costo' len='10' type='integer' align='center'/>
+		<row field='smn_funcion_centro_id' label='${lbl:b_funcion_centro_costo}@{select smn_cont_costos.smn_funcion_centro.smn_funcion_centro_id as id, smn_cont_costos.smn_funcion_centro.fun_codigo|| &apos; - &apos; || smn_cont_costos.smn_funcion_centro.fun_descipcion as item from smn_cont_costos.smn_funcion_centro order by fun_descipcion}' fk='fun_codigo' tableName='smn_perfil_centro_costo' len='10' type='integer' align='center'/>
+		<row field='smn_nivel_distribucion_id' label='${lbl:b_nivel_distribucion}@{select smn_cont_costos.smn_nivel_distribucion.smn_nivel_distribucion_id as id, smn_cont_costos.smn_nivel_distribucion.niv_codigo|| &apos; - &apos; || smn_cont_costos.smn_nivel_distribucion.niv_descipcion as item from smn_cont_costos.smn_nivel_distribucion order by niv_descipcion}' fk='niv_codigo' tableName='smn_perfil_centro_costo' len='10' type='integer' align='center'/>
+		<row field='smn_doc_base_distribucion_id' label='${lbl:b_documento_base_distribucion}@{select smn_cont_costos.smn_doc_base_distribucion.smn_doc_base_distribucion_id as id, smn_cont_costos.smn_doc_base_distribucion.dbd_codigo|| &apos; - &apos; || smn_cont_costos.smn_doc_base_distribucion.dbd_descipcion as item from smn_cont_costos.smn_doc_base_distribucion order by dbd_descipcion}' fk='dbd_codigo' tableName='smn_perfil_centro_costo' len='10' type='integer' align='center'/>
+		<row field='cdi_estatus' label='${lbl:b_status}@{AC=${lbl:b_account_type_active}|IN=${lbl:b_inactive}}' fk='' tableName='smn_perfil_centro_costo' len='2' type='varchar' align='left'/>
+		<row field='cdi_vigencia' label='${lbl:b_validation_date}' fk='' tableName='smn_perfil_centro_costo' len='10' type='date' align='center'/>
+		<row field='cdi_idioma' label='${lbl:s_profile_lang}@{${def:locale}}' fk='' tableName='smn_perfil_centro_costo' len='2' type='varchar' align='left'/>
+		<row field='cdi_usuario' label='${lbl:b_users}@{${def:user}}' fk='' tableName='smn_perfil_centro_costo' len='16' type='varchar' align='left'/>
+		<row field='cdi_fecha_registro' label='${lbl:b_store_date}@{${def:date}}' fk='' tableName='smn_perfil_centro_costo' len='10' type='date' align='center'/>
+		<row field='cdi_hora' label='${lbl:s_loginhist_col2}@{${def:time}}' fk='' tableName='smn_perfil_centro_costo' len='8' type='varchar' align='left'/>
+	</grid>
+	<mobile>false</mobile>
+</model>

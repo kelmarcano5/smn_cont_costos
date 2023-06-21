@@ -1,0 +1,11 @@
+select
+		smn_cont_costos.smn_criterio_distribucion.cdi_codigo,
+	smn_cont_costos.smn_criterio_distribucion.cdi_descripcion,
+	smn_cont_costos.smn_criterio_distribucion.cdi_esquema,
+	smn_cont_costos.smn_criterio_distribucion.cdi_estatus,
+	smn_cont_costos.smn_criterio_distribucion.cdi_vigencia,
+	smn_cont_costos.smn_criterio_distribucion.cdi_fecha_registro
+from
+	smn_cont_costos.smn_criterio_distribucion 
+where
+	smn_cont_costos.smn_criterio_distribucion.smn_criterio_distribucion_id = ${fld:id}

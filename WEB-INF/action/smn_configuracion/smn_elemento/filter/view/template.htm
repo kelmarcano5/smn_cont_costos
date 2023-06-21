@@ -1,0 +1,49 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+	<col width='18%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('ele_codigo','query-smnelemento.sql')" >${lbl:b_acount_code}</th>
+		<th class='sortable' onclick="sortBy('ele_descripcion','query-smnelemento.sql')" >${lbl:b_description} </th>
+		<th class='sortable' onclick="sortBy('ele_estatus_combo','query-smnelemento.sql')" >${lbl:b_status}</th>
+		<th class='sortable' onclick="sortBy('ele_vigencia','query-smnelemento.sql')" >${lbl:b_validation_date}</th>
+		<th class='sortable' onclick="sortBy('ele_fecha_registro','query-smnelemento.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_elemento_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_elemento_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_elemento_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="left">${fld:ele_codigo}</td>
+		<td align="left">${fld:ele_descripcion}</td>
+		<td align="left">${fld:ele_estatus_combo}</td>
+		<td align="center">${fld:ele_vigencia@dd-MM-yyyy}</td>
+		<td align="center">${fld:ele_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>
