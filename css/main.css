@@ -103,7 +103,7 @@ html {
     border-radius:10px;
     padding:10px 20px;
     margin:0 auto 10px;*/
-    
+
     width: 100%;
     height: auto;
     padding: 24px 20px;
@@ -111,7 +111,7 @@ html {
     background-image: url(../images/mainFolder/login_configuracionGIP.png);
     /*background-size: 100%;*/
     background-repeat: round;
- 
+
 }
 .formImg h2 {
     color:#c0c0c5;

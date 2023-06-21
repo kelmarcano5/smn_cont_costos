@@ -11,7 +11,7 @@
 		initialSize="5" maxActive="100" maxIdle="10" maxWait="5000"
 		username="postgres" password="postgres" 		
 		driverClassName="org.postgresql.Driver"
-		url="jdbc:postgresql://190.94.248.50:40002/simonedb_qa" validationQuery="select 1" testOnBorrow="true"/>	
+		url="jdbc:postgresql://localhost:5432/simonedb_qa" validationQuery="select 1" testOnBorrow="true"/>	
 	
  <!--
 	<Resource name="jdbc/dinamica" auth="Container" type="javax.sql.DataSource"

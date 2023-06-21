@@ -24,6 +24,15 @@ form .mobileText {
 	border-bottom: 0px;
 }
 
+.tipocheck{
+	width: 15px;
+  	height: 15px;
+  	background: #555;
+  	margin: 10px 10px;
+  	position: relative;
+  	border-radius: 5px;
+}
+
 .mobileMenu div:hover {
 	cursor: pointer;
 	background-color: #dcdedd;
@@ -300,7 +309,6 @@ form img {
 	margin-top:3px;
 }
 
-
 /* menu */
 .menuBody {
 	margin-left: 0px;
@@ -400,7 +408,6 @@ div.menuTitle:hover,div.menuItem:hover,div.submenuTitle:hover {
 }
 
 /* galeria de imagenes */
-
 .hgrid td {
 	padding: 5px;
 	vertical-align: top;
@@ -419,7 +426,6 @@ div.menuTitle:hover,div.menuItem:hover,div.submenuTitle:hover {
 	height: 80px;
 	padding: 5px;
 }
-
 
 .record {
 	background-color: #f4f4f4;
@@ -478,6 +484,7 @@ div.menuTitle:hover,div.menuItem:hover,div.submenuTitle:hover {
 	font-size: 10pt;
 	margin-left: 230px;
 }
+
 .welcome {
 	text-align: right;
 	color: #E96A00;
@@ -488,7 +495,8 @@ div.menuTitle:hover,div.menuItem:hover,div.submenuTitle:hover {
 	font-size: 12pt;
 	text-transform: uppercase;
 	padding-top: 20px;
-	}
+}
+
 .titulo-negocios {
 	height:65px;
 	background-image:url('/smn_simone/images/barra.png');
@@ -501,4 +509,57 @@ div.menuTitle:hover,div.menuItem:hover,div.submenuTitle:hover {
 	color: black;
 	text-align: center;
 	vertical-align: middle;
+}
+
+.record2{
+	background-color: #ffffff;
+	padding: 0px;
+	margin: 0 auto;
+	margin-top: 10px;
+	box-shadow: 1px 1px 7px #7c7c7c;
+}
+
+.record2 tr td:first-child {
+	text-align:center;
+	font-weight: bold;
+	padding-right: 5px;
+}
+
+.record2 tr td:last-child  {
+	background-color: #ffffff;
+	padding-left: 5px;
+}
+
+.bo {
+	border: 1px solid;
+	font-weight: bold;
+}
+
+/* data entry forms */
+.form2 {
+	background-color: #ffffff;
+	text-align: center;
+	padding-left: 0px;
+	padding-bottom: 5px;
+	margin: 0 auto;
+	/* border-radius: 5px; */
+	/* box-shadow: 1px 1px 7px #7c7c7c; */
+	behavior: url(/smn_base/pie.htc); /* IE8 */
+}
+.tipocheck{
+	width: 15px;
+  height: 15px;
+  background: #555;
+  margin: 10px 10px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.clase_table {
+	border-collapse: separate;
+	border-spacing: 10;
+	border: 1px solid black;
+	border-radius: 15px;
+	-moz-border-radius: 20px;
+	padding: 2px;
 }

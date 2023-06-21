@@ -1,59 +1,3 @@
-/* mobile */
-form .mobileText {
-	width: 180px;
-}
-
-.mobileMenu {
-	margin: 0 auto;
-	border-radius:7px 7px 7px 7px;
-	background-color: #f4f4f4;
-	box-shadow: 1px 1px 7px #7c7c7c;
-}
-
-.mobileMenu div {
-	border-bottom: 1px dotted #bcbcbc;
-	color: black;
-	font-size: 12pt;
-	font-weight: bold;
-	padding-left: 6px;
-	padding-top: 7px;
-	height: 27px;	
-}
-
-.mobileMenu div:last-child {
-	border-bottom: 0px;
-}
-
-.mobileMenu div:hover {
-	cursor: pointer;
-	background-color: #dcdedd;
-	color: black;
-}
-
-/* page title banner mobile*/
-.mobileBanner {
-	font-weight: bold;
-	font-size: 14pt;
-	padding: 5px;
-	color: #ffffff;
-	height: 25px; 
-	margin-bottom: 0px;
-	margin-top: 0px;
-	text-shadow: 1px 1px 0px #1d1d1d;
-	background: -webkit-linear-gradient(left, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%); /* Safari 5.x */ 
-	background: linear-gradient(to right, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%);
-	text-align:center;
-}
-
-.mobileBanner img {
-	float:right; 
-	margin-right:10px;
-	cursor: pointer;
-}
-
-/* end mobile */
-
-
 /* html, body with margin=0 and height=100% are important to support lightbox on IE8 */
 html, body {
 	height:100%; 
@@ -70,7 +14,7 @@ html, body {
 	width: 250px;
 	height: 150px;
 	text-align: center;
-	behavior: url(/smn_base/pie.htc); /* IE8 */
+	behavior: url(/smn_salud/pie.htc); /* IE8 */
 }
 
 .alertbox div {
@@ -82,7 +26,7 @@ html, body {
 	vertical-align: middle;
 	padding-left: 5px;
 	padding-right: 5px;
-	behavior: url(/smn_base/pie.htc); /* IE8 */
+	behavior: url(/smn_salud/pie.htc); /* IE8 */
 }
 
 .alertbox button {
@@ -98,7 +42,7 @@ form {
 	margin: 0 auto;
 	border-radius: 5px;
 	box-shadow: 1px 1px 7px #7c7c7c;
-	behavior: url(/smn_base/pie.htc); /* IE8 */
+	behavior: url(/smn_salud/pie.htc); /* IE8 */
 }
 
 form h1 {
@@ -173,7 +117,7 @@ form img {
 	border-spacing: 1px;
 	margin-top:10px; 
 	layout: fixed;
-	behavior: url(/smn_base/pie.htc); /* IE8 */		
+	behavior: url(/smn_salud/pie.htc); /* IE8 */		
 }
 
 .datagrid tr:first-child th:first-child {
@@ -256,23 +200,13 @@ form img {
 	background: -webkit-linear-gradient(left, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%); /* Safari 5.x */ 
 	background: linear-gradient(to right, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%);
 	-pie-background: linear-gradient(left, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%); /* IE8 */
-	behavior: url(/smn_base/pie.htc); /* IE8 */	
-	
-	/* SIMONE */
-	text-align: center;
-	position: relative;
-}
-
-/* SIMONE */
-.banner_div_left {
-	position: absolute;
-	float: left;
+	behavior: url(/smn_salud/pie.htc); /* IE8 */	
 }
 
 /* popup con iframe */
 .dialogbox {
 	box-shadow: 0px 0px 15px 3px #61606c;
-	behavior: url(/smn_base/pie.htc); /* IE8 */
+	behavior: url(/smn_salud/pie.htc); /* IE8 */
 }
 
 .info {
@@ -292,7 +226,7 @@ form img {
 	background: -webkit-linear-gradient(left, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%); /* Safari 5.x */ 
 	background: linear-gradient(to right, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%);
 	-pie-background: linear-gradient(left, rgba(160,160,160,1) 0%,rgba(222,224,223,1) 100%); /* IE8 */
-	behavior: url(/smn_base/pie.htc); /* IE8 */	
+	behavior: url(/demo/pie.htc); /* IE8 */	
 }
 
 .bannerDialog img {
@@ -302,6 +236,7 @@ form img {
 
 /* menu */
 .menuBody {
+	height: 1100px;
 	margin-left: 0px;
 	margin-right: 0px;
 	border-right: dotted 1px silver;
@@ -362,7 +297,7 @@ div.menuTitle:hover,div.menuItem:hover,div.submenuTitle:hover {
 	margin-top: 20px;
 	margin-bottom: 20px;	
 	width: 600px;
-	behavior: url(/smn_base/pie.htc); /* IE8 */	
+	behavior: url(/smn_salud/pie.htc); /* IE8 */	
 }
 
 .panel tr:first-child td:last-child {
@@ -433,41 +368,4 @@ div.menuTitle:hover,div.menuItem:hover,div.submenuTitle:hover {
 .record tr td:last-child  {
 	background-color: #ffffff;
 	padding-left: 5px;
-}
-
-.exportPDF {
-		padding-left:5px; 
-		background-origin:content-box; 
-		display:block; 
-		margin:0 auto; 
-		height: 25px; 
-		width:150px; 
-		background-image:url('/smn_base/images/pdf.png'); 
-		background-repeat:no-repeat; 
-		background-position:left center;
-}
-
-/* SIMONE */
-.image_left {
-	padding-left:3%; 
-	float: left;
-}
-
-.image_right {
-	padding-right:3%; 
-	float: right;
-}
-
-.alert {
-	text-align: center;
-	color: blue;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #CCCCCC;
-	width: 600px;
-	background-color: #F7F7F7;
-	padding: 5px;
-	font-family: "Trebuchet MS", Verdana, Arial;
-	font-size: 10pt;
-	margin-left: 230px;
 }
