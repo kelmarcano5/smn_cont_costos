@@ -1,0 +1,15 @@
+select
+		smn_cont_costos.smn_bases_distribucion.bdi_codigo,
+	smn_cont_costos.smn_bases_distribucion.bdi_descripcion,
+	smn_cont_costos.smn_bases_distribucion.bdi_forma_calculo,
+	smn_cont_costos.smn_bases_distribucion.smn_nivel_distribucion_id,
+	smn_cont_costos.smn_bases_distribucion.bdi_tipo_distribucion,
+	smn_cont_costos.smn_bases_distribucion.smn_cuenta_mayor_rf,
+	smn_cont_costos.smn_bases_distribucion.smn_modelo_comprobante_rf,
+	smn_cont_costos.smn_bases_distribucion.smn_criterio_distribucion_id,
+	smn_cont_costos.smn_bases_distribucion.bdi_estatus,
+	smn_cont_costos.smn_bases_distribucion.bdi_fecha_registro
+from
+	smn_cont_costos.smn_bases_distribucion 
+where
+	smn_cont_costos.smn_bases_distribucion.smn_bases_distribucion_id = ${fld:id}

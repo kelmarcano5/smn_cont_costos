@@ -1,0 +1,1 @@
+select cum.smn_cuenta_mayor_id as id, cum.cum_codigo as item from smn_cont_financiera.smn_cuenta_mayor cum order by cum.smn_cuenta_mayor_id asc

@@ -1,0 +1,1 @@
+select nvd.smn_nivel_distribucion_id as id, nvd.niv_descripcion from smn_cont_costos.smn_nivel_distribucion nvd order by nvd.smn_nivel_distribucion_id desc

@@ -5409,5 +5409,84 @@
 		<value language="it">Lingua</value>
 	</label>
 	
+	<label id="b_tipo_distribucion">
+		<value language="es">Tipo Distribucion</value>
+		<value language="en">Distribution Type</value>
+		<value language="fr">Distribution Type</value>
+		<value language="de">Distribution Type</value>
+		<value language="pt">Distribution Type</value>
+		<value language="it">Distribution Type</value>
+	</label>
+	<label id="b_base_distribucion">
+		<value language="es">Base Distribución</value>
+		<value language="en">Distribution Basis </value>
+		<value language="fr">Base de distribution  </value>
+		<value language="de">Base Distribution</value>
+		<value language="pt">Distribuição Base de Dados  </value>
+		<value language="it">Base Distribuzione </value>
+	</label>
+	<label id="b_automatica">
+		<value language="es">Automatica</value>
+		<value language="en">Automatic</value>
+		<value language="fr">Automatic</value>
+		<value language="de">Automatic</value>
+		<value language="pt">Automatic</value>
+		<value language="it">Automatic</value>
+	</label>
+	
+	<label id="b_manual">
+		<value language="es">Manual</value>
+		<value language="en">Manual</value>
+		<value language="fr">Manual</value>
+		<value language="de">Manual</value>
+		<value language="pt">Manual</value>
+		<value language="it">Manual</value>
+	</label>
+	
+	<label id="b_fijo">
+		<value language="es">Fijo</value>
+		<value language="en">Fijo</value>
+		<value language="fr">Fijo</value>
+		<value language="de">Fijo</value>
+		<value language="pt">Fijo</value>
+		<value language="it">Fijo</value>
+	</label>
+	
+	<label id="b_variable">
+		<value language="es">Variable</value>
+		<value language="en">Variable</value>
+		<value language="fr">Variable</value>
+		<value language="de">Variable</value>
+		<value language="pt">Variable</value>
+		<value language="it">Variable</value>
+	</label>
+	
+	<label id="b_active">
+		<value language="es">Activo</value>
+		<value language="en">Active</value>
+		<value language="fr">Active</value>
+		<value language="de">Active</value>
+		<value language="pt">Active</value>
+		<value language="it">Active</value>
+	</label>
+	
+	<label id="b_inactive">
+		<value language="es">Inactivo</value>
+		<value language="en">Inactive</value>
+		<value language="fr">Inactive</value>
+		<value language="de">Inactive</value>
+		<value language="pt">Inactive</value>
+		<value language="it">Inactive</value>
+	</label>
+	
+	<label id="b_forma_calculo">
+		<value language="es">Forma de Calculo</value>
+		<value language="en">Form of calculation</value>
+		<value language="fr">Form of calculation</value>
+		<value language="de">Form of calculation</value>
+		<value language="pt">Form of calculation</value>
+		<value language="it">Form of calculation</value>
+	</label>
+	
 	
 </labels>

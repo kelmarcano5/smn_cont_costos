@@ -1,0 +1,1 @@
+select crid.smn_criterio_distribucion_id as id, crid.cdi_descripcion as item from smn_cont_costos.smn_criterio_distribucion crid ORDER BY crid.smn_criterio_distribucion_id desc

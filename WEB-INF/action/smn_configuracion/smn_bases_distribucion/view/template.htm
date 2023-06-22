@@ -1,0 +1,64 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="13" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("bdi_codigo","query-smnbasesdistribucion.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("bdi_descripcion","query-smnbasesdistribucion.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("bdi_forma_calculo_combo","query-smnbasesdistribucion.sql")'>${lbl:b_forma_calculo}</th>
+		<th class='sortable' onclick='sortBy("smn_nivel_distribucion_id_combo","query-smnbasesdistribucion.sql")'>${lbl:b_nivel_distribucion}</th>
+		<th class='sortable' onclick='sortBy("bdi_tipo_distribucion_combo","query-smnbasesdistribucion.sql")'>${lbl:b_tipo_distribucion}</th>
+		<th class='sortable' onclick='sortBy("smn_cuenta_mayor_rf_combo","query-smnbasesdistribucion.sql")'>${lbl:b_major_account}</th>
+		<th class='sortable' onclick='sortBy("smn_modelo_comprobante_rf_combo","query-smnbasesdistribucion.sql")'>${lbl:b_proof_model}</th>
+		<th class='sortable' onclick='sortBy("smn_criterio_distribucion_id_combo","query-smnbasesdistribucion.sql")'>${lbl:b_criterios_distribucion}</th>
+		<th class='sortable' onclick='sortBy("bdi_estatus_combo","query-smnbasesdistribucion.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("bdi_fecha_registro","query-smnbasesdistribucion.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_bases_distribucion_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_bases_distribucion_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_bases_distribucion_id}')" title="${lbl:b_edit_button}"></td>
+		<td align='left'>${fld:bdi_codigo}</td>
+		<td align='left'>${fld:bdi_descripcion}</td>
+		<td align='left'>${fld:bdi_forma_calculo_combo}</td>
+		<td>${fld:smn_nivel_distribucion_id_combo}</td>
+		<td align='left'>${fld:bdi_tipo_distribucion_combo}</td>
+		<td>${fld:smn_cuenta_mayor_rf_combo}</td>
+		<td>${fld:smn_modelo_comprobante_rf_combo}</td>
+		<td>${fld:smn_criterio_distribucion_id_combo}</td>
+		<td align='left'>${fld:bdi_estatus_combo}</td>
+		<td>${fld:bdi_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

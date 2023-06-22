@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='bdi_codigo' type='varchar' required='false' label='${lbl:b_code}' maxlen='64'/>
+	<parameter id='bdi_descripcion' type='varchar' required='false' label='${lbl:b_description}' maxlen='100'/>
+	<parameter id='bdi_forma_calculo' type='varchar' required='false' label='${lbl:b_forma_calculo}' maxlen='2'/>
+	<parameter id='smn_nivel_distribucion_id' type='integer' required='false' label='${lbl:b_nivel_distribucion}' maxlen='10'/>
+	<parameter id='bdi_tipo_distribucion' type='varchar' required='false' label='${lbl:b_tipo_distribucion}' maxlen='2'/>
+	<parameter id='smn_cuenta_mayor_rf' type='integer' required='false' label='${lbl:b_major_account}' maxlen='10'/>
+	<parameter id='smn_modelo_comprobante_rf' type='integer' required='false' label='${lbl:b_proof_model}' maxlen='10'/>
+	<parameter id='smn_criterio_distribucion_id' type='integer' required='false' label='${lbl:b_criterios_distribucion}' maxlen='10'/>
+	<parameter id='bdi_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='bdi_codigo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+parameter='bdi_descripcion'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='bdi_forma_calculo'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='bdi_tipo_distribucion'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='bdi_estatus'
+		rule='contains' />
+
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarCodigo.sql'
+			id='bdi_codigo'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='bdi_descripcion'/>
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

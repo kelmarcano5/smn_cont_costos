@@ -1,0 +1,3 @@
+<rows>
+bdi_fecha_registro="${fld:bdi_fecha_registro}"    bdi_estatus="${fld:bdi_estatus}"    smn_criterio_distribucion_id="${fld:smn_criterio_distribucion_id}"    smn_modelo_comprobante_rf="${fld:smn_modelo_comprobante_rf}"    smn_cuenta_mayor_rf="${fld:smn_cuenta_mayor_rf}"    bdi_tipo_distribucion="${fld:bdi_tipo_distribucion}"    smn_nivel_distribucion_id="${fld:smn_nivel_distribucion_id}"    bdi_forma_calculo="${fld:bdi_forma_calculo}"    bdi_descripcion="${fld:bdi_descripcion}"    bdi_codigo="${fld:bdi_codigo}"    
+</rows>

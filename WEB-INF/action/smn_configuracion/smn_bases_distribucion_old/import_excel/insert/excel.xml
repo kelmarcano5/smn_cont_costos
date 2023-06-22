@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='bdi_codigo' type='varchar' required='true' maxlen='64'/>
+	<parameter id='bdi_descripcion' type='varchar' required='true' maxlen='100'/>
+	<parameter id='bdi_forma_calculo' type='varchar' required='true' maxlen='2'/>
+	<parameter id='smn_nivel_distribucion_id' type='integer' required='true' maxlen='10'/>
+	<parameter id='bdi_tipo_distribucion' type='varchar' required='true' maxlen='2'/>
+	<parameter id='smn_cuenta_mayor_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='smn_modelo_comprobante_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='smn_criterio_distribucion_id' type='integer' required='true' maxlen='10'/>
+	<parameter id='bdi_estatus' type='varchar' required='true' maxlen='2'/>
+</validator>
