@@ -32,7 +32,7 @@ function getHttpObject()
 * divResponse: ID del DIV donde se muestra la respuesta en caso de que sea HTML
 * divProgress: ID del DIV a mostrar mientras se ejecuta la llamada
 * formName: Nombre del formulario en caso que httpMethod sea igual a POST
-* 			2014-06-23: Permite aï¿½adir mas de un formulario separado por punto y coma (;) Ejemplo: formName="form3;form5;form6"
+* 			2014-06-23: Permite a�adir mas de un formulario separado por punto y coma (;) Ejemplo: formName="form3;form5;form6"
 * afterResponseFn: Apuntador a funcion a ejecutar despues de mostrar una respuesta HTML
 * onErrorFn: Apuntador a funcion a ejecutar en caso de error http 500, 403, 404, 401, etc.
 *            Puede utilizarse para restaurar los DIVs que se escondieron antes de invocar
@@ -47,7 +47,17 @@ function ajaxCall(httpMethod, uri, divResponse, divProgress, formName, afterResp
 			progress.style.display='';
 
 		//ensamblar el URL
-		var server = "${def:httpserver}";
+		//var server = "${def:httpserver}";
+    let protocol = window.location.protocol; // http:
+    let urlTemp = window.location.hostname; //dominio.com
+    
+    if(urlTemp == 'localhost'){
+      urlTemp = `${urlTemp}:8080`;
+    }
+    
+    let urlFinal = `${protocol}//${urlTemp}`;
+		var server = urlFinal;
+
 		var url = server + "${def:context}" + uri;
 		if (url.indexOf("?")>0)
 			url = url + "&random=" + Math.random();
@@ -93,19 +103,19 @@ function ajaxCall(httpMethod, uri, divResponse, divProgress, formName, afterResp
 					
 					//verificacion de error y seguridad
 					if (http.status == 500) 
-						alert("${lbl:b_error_system}");
+						alert("Error en el sistema.");
 					else if (http.status == 403)
-						alert("${lbl:b_access_denied}");
+						alert("Acceso denegado.");
 					else if (http.status == 404)
-						alert("${lbl:b_service_not_exists}");
+						alert("El servicio solicitado no existe.");
 					else if (http.status == 401)
-						alert("${lbl:b_service_need_ssl}");
+						alert("El servicio solicitado requiere comunicaci�n v�a SSL.");
 					else 
 					{
 
 						//tratar caso cuando no hay comunicacion con el servidor
 						if (contentType==null || (http.status !=200 && http.status!=400)) {
-							alert("${lbl:b_server_does_not_response}");
+							alert("El servidor no responde.");
 							//invocar callback en caso de error
 							if (onErrorFn!=null)
 								onErrorFn();
@@ -146,6 +156,7 @@ function ajaxCall(httpMethod, uri, divResponse, divProgress, formName, afterResp
 		return false;
 
 }
+
 
 /**
 * Limpiar los controles de un formulario,
@@ -307,7 +318,7 @@ function reloadBox()
 * Crear un DIV que contenga un IFRAME
 * y posicionar el DIV con su contenido
 * abajo y alineado a la izquierda del
-* elemento cuyo ID es el valor del parï¿½metro objID
+* elemento cuyo ID es el valor del par�metro objID
 * objID: ID del DIV que sera creado o inyectado el IFRAME
 * width: Ancho en pixeles del DIV
 * height: Altura en pixeles del DIV
@@ -372,7 +383,7 @@ function showBox(objID, width, height, url, centerPage, scrollActive, html)
     			f.document.write("<center>");
     			f.document.write("<br><br>");
     			f.document.write("<img src='${def:context}/images/progress.gif'>");
-	    		f.document.write("<span style='padding-left:10px;font-family:Arial;font-size:9pt;font-weight:normal'>${lbl:b_loading}...</span>");
+	    		f.document.write("<span style='padding-left:10px;font-family:Arial;font-size:9pt;font-weight:normal'>Cargando...</span>");
     			f.document.write("</center>");
 	    		f.document.close();
     			f.location = url;
@@ -450,7 +461,7 @@ function showBox(objID, width, height, url, centerPage, scrollActive, html)
 			f.document.write("<center>");
 			f.document.write("<br><br>");
 			f.document.write("<img src='${def:context}/images/progress.gif'>");
-			f.document.write("<span style='padding-left:10px;font-family:Arial;font-size:9pt;font-weight:bold'>${lbl:b_loading}...</span>");
+			f.document.write("<span style='padding-left:10px;font-family:Arial;font-size:9pt;font-weight:bold'>Loading...</span>");
 			f.document.write("</center>");
 			f.document.close();
 			f.location = url;
@@ -489,7 +500,7 @@ function showBox(objID, width, height, url, centerPage, scrollActive, html)
 
 /**
 * Esconde un DIV + IFRAME abierto con la
-* funciï¿½n showBox()
+* funci�n showBox()
 * objID: ID del DIV que sera ocultado
 */
 function closeBox(objID)
@@ -520,7 +531,7 @@ function isIE() {
 
 /**
 * Retorna TRUE si el valor representa una fecha
-* de lo contrario retorna FALSE. Si el aï¿½o viene con 2 dï¿½gitos
+* de lo contrario retorna FALSE. Si el a�o viene con 2 d�gitos
 * y en menor que 30, se asume el 20XX, de lo contrario 19XX.
 * value: String que representa una fecha con formato dd-mm-yyyy o dd/mm/yyyy
 */
@@ -536,7 +547,7 @@ function isValidDate(value)
 
 /**
 * Retorna un objeto DATE si el valor representa una fecha
-* de lo contrario retorna NULL. Si el aï¿½o viene con 2 dï¿½gitos
+* de lo contrario retorna NULL. Si el a�o viene con 2 d�gitos
 * y es menor que 30, se asume el 20XX, de lo contrario 19XX.
 * value: String que representa una fecha con formato dd-mm-yyyy o dd/mm/yyyy
 */
@@ -599,28 +610,6 @@ function calendarOpen(objID, lboundID, uboundID, isMovil, calUrl)
 	
 	if (calUrl!=null)
 		url = "${def:context}" + calUrl + "?id=" + objID + "&date=" + d;
-	
-	if (lboundID != null)
-		url = url + "&date.lbound=" + document.getElementById(lboundID).value;
-	if (uboundID != null)
-		url = url + "&date.ubound=" + document.getElementById(uboundID).value;
-	
-	if ( isMovil!=null )
-		showBox(objID, 240,154, url, true);
-	else
-		showBox(objID, 240 ,154, url, false, false);
-}
-
-function calendarOpen2(objID, lboundID, uboundID, isMovil, calUrl)
-{
-	
-	pickControl = objID;
-	
-	var d = document.getElementById(objID).value;
-	var url = "${def:context}/action/calendar2?id=" + objID + "&date=" + d;
-	
-	if (calUrl!=null)
-		url = "${def:context}" + calUrl + "2?id=" + objID + "&date=" + d;
 	
 	if (lboundID != null)
 		url = url + "&date.lbound=" + document.getElementById(lboundID).value;
@@ -716,7 +705,7 @@ function getFormValues(formName)
 	
 	for ( var i=formElements.length-1; i>=0; --i ) {
 		if (formElements[i].name!=""){ 
-			//aï¿½ade elementos radio y checkbox
+			//a�ade elementos radio y checkbox
 			if (formElements[i].type=="checkbox" && !formElements[i].checked){
 			//este checkbox si no ha sido seleccionado es ignorado
 			}else{
@@ -773,7 +762,7 @@ function setCheckboxValue(radioName,radioValue,formName)
 	}
 	for ( var i=formElements.length-1; i>=0; --i ) {
 		if (formElements[i].name == radioName && (formElements[i].type=="radio" || formElements[i].type=="checkbox") ){ 
-			//aï¿½ade elementos radio y checkbox
+			//a�ade elementos radio y checkbox
 			if (formElements[i].value==radioValue){
 			formElements[i].checked = true;
 			return;
@@ -810,6 +799,18 @@ function replaceDecimal(elem)
 	var value = elem.value;
 	elem.value = value.replace(new RegExp(",", "g") ,".");
 }
+
+/**
+ * Remplazar el valor "," por "." en un elemento que contiene
+ * un valor de tipo decimal. 
+ * elem: Elemento que contiene el valor a ser remplazado
+ */
+function replaceDecimal2(elem)
+{
+	var value = elem.value;
+	elem.value = value.replace(new RegExp(".", "g") ,",");
+}
+
 
 /**
 * Funciones de soporte para los grid
@@ -884,8 +885,8 @@ function gotoPage(url)
  */
 function showCurrentPage()
 {
-	document.getElementById('pagecount').innerHTML=currentPage + " ${lbl:b_of} " + lastPage;
-	document.getElementById('recordcount').innerHTML=recordsFound  + " ${lbl:b_rows}";
+	document.getElementById('pagecount').innerHTML=currentPage + " de " + lastPage;
+	document.getElementById('recordcount').innerHTML=recordsFound  + " filas";
 }
 	
 /**
@@ -934,7 +935,7 @@ function pickOpen(id, idCtl, url, ancho, altura, isMovil)
 	//verifica si existe el textbox
 	var obj = document.getElementById(id);
 	if (obj==null) {
-		alert("${lbl:b_error_pick_open}: " + id);
+		alert("ERROR (pickOpen): no existe un elemento con ID: " + id);
 		return;			
 	}
 
@@ -992,18 +993,18 @@ function getNodeByName(node, name) {
  */
 
 /**
- * Aï¿½adir un item a un listbox
+ * A�adir un item a un listbox
  * elementId: ID del control que representa al ListBox
  * itemId: ID del item
  * itemTitle: Texto del item
- * Notas: no permite aï¿½adir items con ID duplicado
+ * Notas: no permite a�adir items con ID duplicado
 */ 
 function listboxAddItem(elementId, itemId, itemTitle) {
 	
 	//obtener el control listbox
 	var lbox = document.getElementById(elementId);
 	if (lbox==null) {
-		alert("${lbl:b_error_listbox_add_item}: " + elementId);
+		alert("ERROR (listboxAddItem): no existe un elemento con ID: " + elementId);
 		return;
 	}
 		
@@ -1015,12 +1016,12 @@ function listboxAddItem(elementId, itemId, itemTitle) {
 	//este item ya esta en el listbox?
 	for (var i = 0; i < lbox.length; i++) {
       if (lbox[i].value == itemId) {
-         alert("${lbl:b_item_already_selected}");
+         alert("Este item ya fue seleccionado.");
          return;
       }
     } 	
 	
-	//aï¿½adir item
+	//a�adir item
 	if (isIE())
 		lbox.add(option);
 	else
@@ -1035,7 +1036,7 @@ function listboxAddItem(elementId, itemId, itemTitle) {
 function listboxRemoveItem(elementId) {
 	var lbox = document.getElementById(elementId);
 	if (lbox==null) {
-		alert("${lbl:b_error_listbox_remove_item}: " + elementId);
+		alert("ERROR (listboxRemoveItem): no existe un elemento con ID: " + elementId);
 		return;
 	}	
 	if (lbox.selectedIndex>=0)
@@ -1050,7 +1051,7 @@ function listboxClear(elementId) {
 
 	var lbox = document.getElementById(elementId);
 	if (lbox==null) {
-		alert("${lbl:b_error_listbox_clear}: " + elementId);
+		alert("ERROR (listboxClear): no existe un elemento con ID: " + elementId);
 		return;
 	}
 	
@@ -1074,7 +1075,7 @@ function listboxGetItemValues(elementId, separator) {
 
 	var lbox = document.getElementById(elementId);
 	if (lbox==null) {
-		alert("${lbl:b_error_listbox_get_item_values}: " + elementId);
+		alert("ERROR (listboxGetItemValues): no existe un elemento con ID: " + elementId);
 		return;
 	}	
 	var ids = "";
@@ -1102,7 +1103,7 @@ function listboxGetTextValues(elementId, separator) {
 
 	var lbox = document.getElementById(elementId);
 	if (lbox==null) {
-		alert("${lbl:b_error_listbox_get_text_values}: " + elementId);
+		alert("ERROR (listboxGetTextValues): no existe un elemento con ID: " + elementId);
 		return;
 	}	
 	var ids = "";
@@ -1161,7 +1162,7 @@ function setFormErrorMsg(formElementId,text) {
 			div.className = "errormsg";
 			elem.parentNode.appendChild(div);
 		} catch (err) {
-			alert("${lbl:b_error_div}: " + formElementId);
+			alert("Error en setFormErrorMsg -> Element ID: " + formElementId);
 		}
 	}	
 	setInnerHtml(id, text);	
@@ -1194,7 +1195,7 @@ function getElementsByClass(searchClass,node,tag) {
 }
 
 /**
- * Cï¿½digo tomado de:
+ * C�digo tomado de:
  * http://www.codingforums.com/showthread.php?p=178077#post178077
  * Permite dar formato a un decimal y mostrar un cierto numero de decimales
  * n: Numero de decimales a mostrar
@@ -1219,7 +1220,7 @@ Number.prototype.toDecimals=function(n){
 };
 
 /** 
- * Cï¿½digo tomado de:
+ * C�digo tomado de:
  * http://www.webdeveloper.com/forum/showthread.php?t=68675
  * Permite obtener tanto el alto como ancho de la pagina HTML que se esta usando
  */
@@ -1247,12 +1248,34 @@ function openDialog(dialogID, url, ancho, altura)
 	showBox(dialogID, ancho, altura, url, true, true);
 }	
 
+function openDialog2(dialogID, url, ancho, altura)
+{	
+	this.dialogID = dialogID;
+	//mostrar popup dhtml
+	showBox(dialogID, ancho, altura, url, true, true);
+}	
+
 /**
 * Oculta un DIV + IFRAME que se encuentra en el centro
 * de una pagina 
 */
 function closeDialog()
 {
+	document.getElementById(dialogID + "_popup").style.display = "none";
+
+	/* soporte para lightbox */
+	var overlay = document.getElementById('_overlay');
+	if (overlay!=null)
+		overlay.style.display='none';
+}
+
+/**
+* Oculta un DIV + IFRAME que se encuentra en el centro
+* de una pagina 
+*/
+function closeDialog2(dialogID)
+{
+	alert("diaglog: "+dialogID);
 	document.getElementById(dialogID + "_popup").style.display = "none";
 
 	/* soporte para lightbox */
@@ -1298,9 +1321,9 @@ Number.prototype.format = function(c, d, t){
 
 /*
 Widget para convertir un input text en un control con mascara
-para ingreso de nï¿½meros con separadores de miles y decimales. La funciï¿½n
+para ingreso de n�meros con separadores de miles y decimales. La funci�n
 getFormValues() le quita el formato para enviar el valor en formato americano  
-como lo espera Dinï¿½mica. Soporta 0, 2 o 4 decimales.
+como lo espera Din�mica. Soporta 0, 2 o 4 decimales.
 Se usa asi; onload = function() { var text1 = new MaskedTextDouble(document.form1.text1); }
 */
 function NumericInput(elem, decimalPlaces, allowNegative) {
@@ -1383,13 +1406,13 @@ function NumericInput(elem, decimalPlaces, allowNegative) {
 } //end widget NumericInput
 
 
-// funciones aï¿½adidas desde el 2013-04-03
+// funciones a�adidas desde el 2013-04-03
 
 //Mostrar DialogBox con efecto lightbox para alert o confirm
 //message: mensaje a mostrar, puede contener html
-//buttonOK: etiqueta del botï¿½n OK
-//buttonCancel: etiqueta del botï¿½n Cancel, si es nulo no se muestra este botï¿½n y el focus se pone el botï¿½n OK
-//OkFn: script con la funciï¿½n a invocar en el onclick del botï¿½n OK, si es nulo solo se cierra el dialogo
+//buttonOK: etiqueta del bot�n OK
+//buttonCancel: etiqueta del bot�n Cancel, si es nulo no se muestra este bot�n y el focus se pone el bot�n OK
+//OkFn: script con la funci�n a invocar en el onclick del bot�n OK, si es nulo solo se cierra el dialogo
 function alertBox(message, buttonOK, buttonCancel, OkFn) {
 	
 	var fn = "closeAlertBox()";
@@ -1439,7 +1462,7 @@ function alertBox(message, buttonOK, buttonCancel, OkFn) {
 	
 }
 
-//Cierra un DialogBox desplegado con la funciï¿½n alertBox()
+//Cierra un DialogBox desplegado con la funci�n alertBox()
 function closeAlertBox() {
 	var id ="alertbox";
 	if (document.getElementById(id)!=null)
@@ -1478,6 +1501,7 @@ function lightBoxOff() {
 }
 
 
+
 //SIMONE CODE
 function getFormValuesToCopy(formName)
 {
@@ -1500,7 +1524,7 @@ function getFormValuesToCopy(formName)
 	{
 		if (formElements[i].name!="")
 		{ 
-			//aÃ±ade elementos radio y checkbox
+			//añade elementos radio y checkbox
 			if (formElements[i].type=="checkbox" && !formElements[i].checked)
 			{
 				//este checkbox si no ha sido seleccionado es ignorado
@@ -1566,7 +1590,7 @@ function getFormValuesToPaste(formName)
 	{
 		if (formElements[i].name!="")
 		{ 
-			//aÃ±ade elementos radio y checkbox
+			//añade elementos radio y checkbox
 			if (formElements[i].type=="checkbox" && !formElements[i].checked)
 			{
 				//este checkbox si no ha sido seleccionado es ignorado
@@ -1623,7 +1647,7 @@ function getFormValuesToStore(formName)
 	{
 		if (formElements[i].name!="")
 		{ 
-			//aÃ±ade elementos radio y checkbox
+			//añade elementos radio y checkbox
 			if (formElements[i].type=="checkbox" && !formElements[i].checked)
 			{
 				//este checkbox si no ha sido seleccionado es ignorado
@@ -1665,19 +1689,203 @@ function getFormValuesToStore(formName)
 
 }
 
-var IDLE_TIMEOUT = ${req:idle_timeout}; // lo coloca en el request una clase transaction
-var _idleSecondsCounter = 0;
-document.onclick = function() {
-	_idleSecondsCounter = 0;
-};
-document.onkeypress = function() {
-	_idleSecondsCounter = 0;
-};
-window.setInterval(CheckIdleTime, 1000);
-
-function CheckIdleTime() {
-	_idleSecondsCounter++;
-	if (_idleSecondsCounter >= IDLE_TIMEOUT) {
-		document.location.href = "${def:httpserver}${def:context}/action/security/exit";
+//Author     : SIMONE
+//Description: Set selected index into combo box
+//Return     : None
+function setSelectedIndex(code, combo, description) {
+	//alert(code, combo, descripcion);
+	//alert('text = ' + combo.options[i].text + ' value = ' + combo.options[i].value)
+	for (var i = 0; i < combo.options.length; i++) {
+		var valueText = code;
+		if (description != null) {
+			valueText = valueText + ' - ' + description;
+		}
+		if (combo.options[i].text == valueText) {
+			//alert('text = ' + combo.options[i].text + ' value = ' + combo.options[i].value)
+			combo.options[i].selected = true;
+			return;
+		}
 	}
+}
+
+//Author     : SIMONE
+//Description: Set first element as selected value
+//Return     : None
+function setElementFirstIndex(id) {
+	var combo = document.getElementById(id);
+	combo.selectedIndex = 0;
+}
+
+//Author     : SIMONE
+//Description: Insert new value into combo box
+//Return     : None
+function insertComboBox(code, combo, description, field) {
+	var valueText = code;
+	if (description != null) {
+		valueText = valueText + ' - ' + description;
+	}
+	var option = document.createElement("option");
+	option.text = valueText;
+	option.value = bdID;
+	//alert(field)		
+	if (field == 'smn_presupuesto_id') {
+		document.form1.smn_presupuesto_id.add(option, combo.options.length);
+	}
+}
+
+//Author     : SIMONE
+//Description: Add new value to combo box
+//Return     : None
+function addValueToCombo(code, description, field) {
+	var combo = document.getElementById(field);
+	insertComboBox(code, combo, description, field);
+}
+
+
+//Author     : SIMONE
+//Description: Set selected index into combo box
+//Return     : None
+function setSelectedIndexValue(value, combo) {
+	for (var i = 0; i < combo.options.length; i++) {
+		if (combo.options[i].text == value) {
+			combo.options[i].selected = true;
+			return;
+		}
+	}
+}
+
+//Author     : SIMONE
+//Description: Get text valueof selected index
+//Return     : Text associated to index
+function getSelectedIndex(combo) {
+	for (var i = 0; i < combo.options.length; i++) {
+		if (combo.options[i].selected == true) {
+			return combo.options[i].text;
+		}
+	}
+}
+
+function getIDSelectedIndex(combo) {
+	for (var i = 0; i < combo.options.length; i++) {
+		if (combo.options[i].selected == true) {
+			return combo.options[i].value;
+		}
+	}
+}
+
+ //Author     : SIMONE
+//Description: Set value to combo box
+//Parameters:   code        – (it is code associated into each database table) 
+//              description     - it is description associated into each database table 
+//              field       - name combo field
+//              id      - identifier retrieved after transaction
+//              linked      - flag indicates 'true' when combos are linked.
+//Return     : None
+function setValueComboBox(code, description, field, linked) {
+	//add value text to combo
+	addValueToCombo(code, description, field);
+	//get select object 
+	var combo = document.getElementById(field);
+	//set element selected to field referenced
+	setSelectedIndex(code, combo, description);
+	//set text value to combo field
+	var valueText = getSelectedIndex(combo);
+	//get hidden field in order to set any value
+	var combo = document.getElementById(field + '_name');
+
+	combo.text = valueText;
+	combo.value = bdID;
+}
+
+var bdID;
+
+function setID(id) {
+	bdID = id;
+}
+
+var wdt = document.documentElement.scrollWidth-30;
+var hgt = document.documentElement.scrollHeight;
+
+window.onresize = setWindowSize;
+
+function setWindowSize() {
+    wdt = document.documentElement.scrollWidth-30;
+    hgt = document.documentElement.scrollHeight;
+}
+
+
+function showToast(icon,msg) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+    //ICONS: success, error, warning, info, question
+
+    Toast.fire({
+        icon: icon,
+        title: msg
+    })
+}
+
+function setSelect2() {
+    $('.select2').select2();
+}
+
+function showMessage(tittle, message, icon) {
+    //ICONS: success, error, warning, info, question
+    //Swal.fire(tittle, message, icon);
+    Swal.fire({
+        title: tittle,
+        text: message,
+        icon: icon,
+        confirmButtonText: 'Ok',
+        confirmButtonColor: '#0f3c6a',
+    });
+}
+
+function clearSelect2() {
+    $('.select2').val(0).change();
+}
+
+function setDataSelect2(id,value) {
+    if(_.isEmpty(value) || value == 0){
+        $('#'+id).val(0).change();
+        return;
+    }
+    $('#'+id).val(value).change();
+}
+
+function changeMoneda() {
+    let option = $('input[name=changeMoneda]:checked').val();
+
+    switch (option) {
+        case 'ML':
+            $('.ML').show();
+            $('.MA').hide();
+            break;
+        case 'MA':
+            $('.ML').hide();
+            $('.MA').show();
+            break;
+        default:
+            $('.ML').show();
+            $('.MA').hide();
+            break;
+    }
+}
+
+function formatear_monto(monto){
+    return monto.replace('.','').replace('.','').replace(',','.');
+}
+
+function dosDecimales(numero) {
+    return Math.floor(numero * 100) / 100;
 }
